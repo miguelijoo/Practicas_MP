@@ -28,5 +28,30 @@ float **crearimagen(int alto, int ancho){
 }
 
 void generarruido(float **imagen, int alto, int ancho){
+    for(int i=0;i<alto*ancho;i++){
+        *(imagen[0]+i)=((float)rand() / RAND_MAX) * 255.0;
+        printf("%.2f ", *(imagen[0]+i));
+        if((i+1)%ancho==0){
+            printf("\n");
+        }
+    }
+}
 
+void aplicarumbral(float **imagen, int alto, int ancho, float umbral){
+    printf("La nueva imagen tras aplicar el umbral es: \n");
+    for(int i=0;i<alto;i++){
+        printf("\n");
+        for(int j=0;j<ancho;j++){
+            if(imagen[i][j]<umbral){
+                imagen[i][j]=0;
+            }
+            printf("%.2f ", imagen[i][j]);
+        }
+    }
+}
+
+void destruirimagen(float ***imagen){
+    free((*imagen)[0]); /*Primero señalamos con * antes de la imagen que estamos accediendo a la imagen del main, no al puntero que permite hacer este paso por referencia. En segundo lugar liberamos por completo el array generado. Como hemos hecho toda la matriz en la fila 0 y luego simplemente hemos asignado cada puntero de las otras filas a una posición del array hecho en la fila 0, con liberar la fila 0 vamos sobrados y además nos aseguramos evitar errores ya que debe haber tantos free como calloc, malloc y realloc haya, nada más.*/
+    free(*imagen); /*Una vez liberado el array completo, liberamos la matriz en general, es decir, hacemos un free al array de punteros, a las filas, tras haber liberado las columnas.*/
+    *imagen=NULL; /*Ponemos la matriz a NULL para asegurarnos que no da problemas en memoria*/
 }
