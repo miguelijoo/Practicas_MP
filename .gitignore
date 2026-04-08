@@ -1,6 +1,4 @@
 # Ignorar archivos compilados y bibliotecas
 *.o
-*.a
 
 # Ignorar ejecutables (asumiendo que los llamas Eje1, Eje2, etc.)
-eje*
