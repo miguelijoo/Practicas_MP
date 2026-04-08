@@ -1,3 +1,6 @@
+#ifndef FUNCIONES_H
+#define FUNCIONES_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -7,3 +10,5 @@ void rellenarmatriz(float **matriz, int nfil, int ncol);
 void imprimematriz(float **matriz, int nfil, int ncol);
 float *maxfila(float **matriz, int nfil, int ncol);
 void liberarmemoria(float ***matriz);
+
+#endif
