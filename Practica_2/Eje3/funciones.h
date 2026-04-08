@@ -1,3 +1,6 @@
+#ifndef FUNCIONES_H
+#define FUNCIONES_H
+
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
@@ -7,3 +10,5 @@ void imprimematriz(int **matriz, int nfil, int ncol);
 void rellenarmatriz(int **matriz, int nfil, int ncol);
 int *mincol(int **matriz, int nfil, int ncol);
 void liberarmemoria(int ***matriz, int nfil);
+
+#endif
