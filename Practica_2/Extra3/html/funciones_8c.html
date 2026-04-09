@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ejercicio extra 3: Referencia del archivo funciones.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Ejercicio extra 3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('funciones_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referencia del archivo funciones.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Este fichero contiene las funciones relacionadas con la reserva de memoria, la comparación entre números positivos y negativos en la matriz y la liberación de memoria final.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="funciones_8h_source.html">funciones.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependencias incluidas en funciones.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="funciones_8c__incl.png" border="0" usemap="#afunciones_8c" loading="lazy" alt=""/></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ada54a282b30d702b807885c013b90049" id="r_ada54a282b30d702b807885c013b90049"><td class="memItemLeft" align="right" valign="top">double **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada54a282b30d702b807885c013b90049">crearmatriz</a> (int fil, int col)</td></tr>
+<tr class="memdesc:ada54a282b30d702b807885c013b90049"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta función es la encargada de reservar memoria para generar la matriz y comprobar que hay memoria suficiente para dicha reserva. La reserva se hará generando primero un array de punteros que serán las filas de la matriz y posteriormente estos punteros de este array serán los arrays de datos double, es decir, las columnas de la matriz.  <br /></td></tr>
+<tr class="memitem:a1ef7a991b73e2f339fc575c098fd6932" id="r_a1ef7a991b73e2f339fc575c098fd6932"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ef7a991b73e2f339fc575c098fd6932">comparar</a> (double **matriz, int fil, int col, int *pos, int *neg)</td></tr>
+<tr class="memdesc:a1ef7a991b73e2f339fc575c098fd6932"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta función se encarga de comparar cada valor de la matriz para establecer si es positivo o negativo.  <br /></td></tr>
+<tr class="memitem:ab75cad90369ec1eada3ba9895ae42f72" id="r_ab75cad90369ec1eada3ba9895ae42f72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab75cad90369ec1eada3ba9895ae42f72">liberarmatriz</a> (double ***matriz, int fil)</td></tr>
+<tr class="memdesc:ab75cad90369ec1eada3ba9895ae42f72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta función es la encargada de liberar la memoria que ocupa la matriz, liberando primero los arrays de datos tipo double y tras esto los pone a NULL. Una vez hecho este proceso se libera el array de punteros y se pone el puntero doble a NULL. Este proceso se hace mediante paso por referencia.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Este fichero contiene las funciones relacionadas con la reserva de memoria, la comparación entre números positivos y negativos en la matriz y la liberación de memoria final. </p>
+<dl class="section author"><dt>Autor</dt><dd>Miguel Ángel Alijo Fernández </dd></dl>
+<dl class="section date"><dt>Fecha</dt><dd>09-04-2026 </dd></dl>
+<dl class="section version"><dt>Versión</dt><dd>1.0.0 </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones</h2>
+<a id="a1ef7a991b73e2f339fc575c098fd6932" name="a1ef7a991b73e2f339fc575c098fd6932"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ef7a991b73e2f339fc575c098fd6932">&#9670;&#160;</a></span>comparar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void comparar </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matriz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fil</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>col</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *</td>          <td class="paramname"><span class="paramname"><em>neg</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta función se encarga de comparar cada valor de la matriz para establecer si es positivo o negativo. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Es la matriz </td></tr>
+    <tr><td class="paramname">fil</td><td>Filas de la matriz </td></tr>
+    <tr><td class="paramname">col</td><td>Columnas de la matriz </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>No devuelve nada pero modifica en el main los valores pasados por referencia para saber cuántos valores positivos y negativos tiene la matriz. </dd></dl>
+
+</div>
+</div>
+<a id="ada54a282b30d702b807885c013b90049" name="ada54a282b30d702b807885c013b90049"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada54a282b30d702b807885c013b90049">&#9670;&#160;</a></span>crearmatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ** crearmatriz </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fil</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>col</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta función es la encargada de reservar memoria para generar la matriz y comprobar que hay memoria suficiente para dicha reserva. La reserva se hará generando primero un array de punteros que serán las filas de la matriz y posteriormente estos punteros de este array serán los arrays de datos double, es decir, las columnas de la matriz. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Es la matriz a rellenar </td></tr>
+    <tr><td class="paramname">fil</td><td>Filas de la matriz </td></tr>
+    <tr><td class="paramname">col</td><td>Columnas de la matriz </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Devuelve un puntero doble de tipo double, que sería la matriz generada en la función. </dd></dl>
+
+</div>
+</div>
+<a id="ab75cad90369ec1eada3ba9895ae42f72" name="ab75cad90369ec1eada3ba9895ae42f72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab75cad90369ec1eada3ba9895ae42f72">&#9670;&#160;</a></span>liberarmatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void liberarmatriz </td>
+          <td>(</td>
+          <td class="paramtype">double ***</td>          <td class="paramname"><span class="paramname"><em>matriz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fil</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta función es la encargada de liberar la memoria que ocupa la matriz, liberando primero los arrays de datos tipo double y tras esto los pone a NULL. Una vez hecho este proceso se libera el array de punteros y se pone el puntero doble a NULL. Este proceso se hace mediante paso por referencia. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Es la matriz </td></tr>
+    <tr><td class="paramname">fil</td><td>Filas de la matriz </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>No devuelve nada. Sólo libera la memoria que ocupaba la matriz. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="funciones_8c.html">funciones.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

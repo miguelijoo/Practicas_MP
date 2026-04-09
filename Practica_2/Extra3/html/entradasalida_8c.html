@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ejercicio extra 3: Referencia del archivo entradasalida.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Ejercicio extra 3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('entradasalida_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referencia del archivo entradasalida.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Este fichero contiene las funciones usadas para rellenar de datos la matriz y mostrarla en pantalla.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="entradasalida_8h_source.html">entradasalida.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependencias incluidas en entradasalida.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="entradasalida_8c__incl.png" border="0" usemap="#aentradasalida_8c" loading="lazy" alt=""/></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a8d56303fc77ce932a4df8758e3b08b29" id="r_a8d56303fc77ce932a4df8758e3b08b29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d56303fc77ce932a4df8758e3b08b29">rellenarmatriz</a> (double **matriz, int fil, int col, double max, double min)</td></tr>
+<tr class="memdesc:a8d56303fc77ce932a4df8758e3b08b29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta función es la encargada de rellenar de datos la matriz. Se rellena con números aleatorios generados en un rango establecido por el usuario.  <br /></td></tr>
+<tr class="memitem:acc589def17a2b253a6e412e328c5f2d1" id="r_acc589def17a2b253a6e412e328c5f2d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc589def17a2b253a6e412e328c5f2d1">mostrarmatriz</a> (double **matriz, int fil, int col)</td></tr>
+<tr class="memdesc:acc589def17a2b253a6e412e328c5f2d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta función es la encargada de mostrar la matriz por pantalla.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Este fichero contiene las funciones usadas para rellenar de datos la matriz y mostrarla en pantalla. </p>
+<dl class="section author"><dt>Autor</dt><dd>Miguel Ángel Alijo Fernández </dd></dl>
+<dl class="section date"><dt>Fecha</dt><dd>09-04-2026 </dd></dl>
+<dl class="section version"><dt>Versión</dt><dd>1.0.0 </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones</h2>
+<a id="acc589def17a2b253a6e412e328c5f2d1" name="acc589def17a2b253a6e412e328c5f2d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc589def17a2b253a6e412e328c5f2d1">&#9670;&#160;</a></span>mostrarmatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mostrarmatriz </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matriz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fil</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>col</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta función es la encargada de mostrar la matriz por pantalla. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Es la matriz a rellenar </td></tr>
+    <tr><td class="paramname">fil</td><td>Filas de la matriz </td></tr>
+    <tr><td class="paramname">col</td><td>Columnas de la matriz </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>No devuelve nada, sólo muestra la matriz en pantalla. </dd></dl>
+
+</div>
+</div>
+<a id="a8d56303fc77ce932a4df8758e3b08b29" name="a8d56303fc77ce932a4df8758e3b08b29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d56303fc77ce932a4df8758e3b08b29">&#9670;&#160;</a></span>rellenarmatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rellenarmatriz </td>
+          <td>(</td>
+          <td class="paramtype">double **</td>          <td class="paramname"><span class="paramname"><em>matriz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fil</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>col</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>max</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>min</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta función es la encargada de rellenar de datos la matriz. Se rellena con números aleatorios generados en un rango establecido por el usuario. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Es la matriz a rellenar </td></tr>
+    <tr><td class="paramname">fil</td><td>Filas de la matriz </td></tr>
+    <tr><td class="paramname">col</td><td>Columnas de la matriz </td></tr>
+    <tr><td class="paramname">max</td><td>Valor máximo del rango de números aleatorios a generar </td></tr>
+    <tr><td class="paramname">min</td><td>Valor mínimo del rango de números aleatorios a generar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>No devuelve nada, sólo modifica los valores que tendrá la matriz en su interior. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="entradasalida_8c.html">entradasalida.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

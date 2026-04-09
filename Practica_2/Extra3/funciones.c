@@ -1,3 +1,10 @@
+/**
+ * @file funciones.c
+ * @author Miguel Ángel Alijo Fernández
+ * @brief Este fichero contiene las funciones relacionadas con la reserva de memoria, la comparación entre números positivos y negativos en la matriz y la liberación de memoria final.
+ * @date 09-04-2026
+ * @version 1.0.0
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

@@ -1,3 +1,10 @@
+/**
+ * @file entradasalida.c
+ * @author Miguel Ángel Alijo Fernández
+ * @brief Este fichero contiene las funciones usadas para rellenar de datos la matriz y mostrarla en pantalla.
+ * @date 09-04-2026
+ * @version 1.0.0
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
