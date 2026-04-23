@@ -11,7 +11,7 @@ int main(){
     FILE *fichero;
     crearfichero(&fichero);
     if(fichero==NULL){
-        printf("No se ha podido abrir el ichero.");
+        printf("No se ha podido abrir el fichero.");
         return -1;
     }
     rellenarfichero(fichero);
