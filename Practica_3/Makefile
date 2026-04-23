@@ -1,28 +1,18 @@
-# ==========================================
-# PLANTILLA MAESTRA MAKEFILE (main.c + funciones.c)
-# ==========================================
-
-# 1. Variables
 CC = gcc
-CFLAGS = -Wall -Wextra -O2 -I.
+EXE = Eje
 OBJ = main.o funciones.o
+CFLAGS = -Wall -Wextra -O2 -I.
 
-# EL NOMBRE DE TU EJECUTABLE (¡Cambia esto en cada ejercicio!)
-EXE = ejercicio_ficheros
-
-# 2. Targets Simbólicos
 .PHONY: all clean
 
-# 3. Reglas
 all: $(EXE)
 
 $(EXE): $(OBJ)
-	$(CC) $^ -o $@
-	@echo "=> Enlace completado. Ejecutable '$(EXE)' listo."
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(OBJ) -o $(EXE)
+main.o: main.c funciones.h
+	$(CC) $(CFLAGS) -c main.c
+fuciones.o: funciones.c fuciones.h
+	$(CC) $(CFLAGS) -c funciones.c
 
 clean:
 	rm -f *.o $(EXE)
-	@echo "=> Basura eliminada."
