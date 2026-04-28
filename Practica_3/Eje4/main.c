@@ -22,35 +22,13 @@ int main(int argc, char **argv){
             buscarlibro(fichero, argv[1]);
         }
         else if(opcion==2){
-            añadirlibro(fichero, argv[1]);
+            anadirlibro(fichero, argv[1]);
         }
-    }while(0<opcion<9);
-    char titaut[50];
-    float precio;
-    int unidades;
-
-
-/*
-        printf("Introduzca los datos del libro: \n");
-        printf("Nombre (separado por _): ");
-        fgets(titaut, 50, stdin);
-        if(titaut[strlen(titaut)-1]=='\n'){
-            titaut[strlen(titaut)-1]='\0';
+        else if(opcion==3){
+            contarlibros(fichero, argv[1]);
         }
-        fprintf(fichero,"%s\n", titaut);
-        printf("Nombre del autor(separado por _): ");
-        fgets(titaut, 50, stdin);
-        if(titaut[strlen(titaut)-1]=='\n'){
-            titaut[strlen(titaut)-1]='\0';
+        else if(opcion==4){
+            listarlibros(fichero, argv[1]);
         }
-
-        fprintf(fichero,"%s\n", titaut);
-        printf("Precio: ");
-        scanf("%f", &precio);
-        printf("Unidades del producto: ");
-        scanf("%d", &unidades);
-        fprintf(fichero,"%.2f %d\n", precio, unidades);
-        while(getchar() != '\n');
-    }
-*/
+    }while(0<opcion && opcion<9);
 }
