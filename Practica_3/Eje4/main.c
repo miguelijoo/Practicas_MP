@@ -32,7 +32,10 @@ int main(int argc, char **argv){
         }
         else if(opcion==5){
             libro *libros=NULL;
-            hacerstruct(fichero, argv[1], &libros);
+            int n=0;
+            hacerstruct(fichero, argv[1], &libros, &n);
+            subirprecio(fichero, argv[1], libros, n);
+            free(libros);
         }
     }while(0<opcion && opcion<9);
 }

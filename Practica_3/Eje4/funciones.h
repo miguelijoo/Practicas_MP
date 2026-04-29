@@ -13,5 +13,10 @@ typedef struct{
 }libro;
 
 void buscarlibro(FILE *fichero, char *nombre);
+void anadirlibro(FILE *fichero, char *nombre);
+void contarlibros(FILE *fichero, char *nombre);
+void listarlibros(FILE *fichero, char *nombre);
+void hacerstruct(FILE *fichero, char *nombre, libro **libros, int *k);
+void subirprecio(FILE *fichero, char *nombre, libro *libros, int n);
 
 #endif

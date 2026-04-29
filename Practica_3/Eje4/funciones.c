@@ -107,7 +107,7 @@ void listarlibros(FILE *fichero, char *nombre){
     }
     char titaut[50];
     float precio;
-    int uds;
+    int uds, c;
     while(fgets(titaut, 50, fichero)!=NULL){
         printf("\nTitulo: %s", titaut);
         fgets(titaut, 50, fichero);
@@ -115,13 +115,13 @@ void listarlibros(FILE *fichero, char *nombre){
         fscanf(fichero,"%f %d", &precio, &uds);
         printf("Precio: %.2f\n", precio);
         printf("Unidades: %d\n", uds);
-        while(fgetc(fichero)!='\n');
+        while(c=fgetc(fichero)!='\n' && c!=EOF);
     }
     fclose(fichero);
 }
 
-void hacerstruct(FILE *fichero, char *nombre, libro **libros){
-    fichero=fopen(nombre, 'r');
+void hacerstruct(FILE *fichero, char *nombre, libro **libros, int *k){
+    fichero=fopen(nombre, "r");
     if(fichero==NULL){
         printf("No se ha podido abrir el fichero");
         return;
@@ -139,9 +139,31 @@ void hacerstruct(FILE *fichero, char *nombre, libro **libros){
     rewind(fichero);
     while(fgets((*libros)[i].titulo, 50, fichero)!=NULL && i<n){
         fgets((*libros)[i].autor, 50, fichero);
-        fscanf("%f %d", &((*libros)[i].precio), &((*libros)[i].unidades));
+        fscanf(fichero, "%f %d", &((*libros)[i].precio), &((*libros)[i].unidades));
         while(fgetc(fichero)!='\n');
         i+=1;
+    }
+    *k=n;
+    fclose(fichero);
+}
+
+void subirprecio(FILE *fichero, char *nombre, libro *libros, int n){
+    fichero=fopen(nombre, "w");
+    if(fichero==NULL){
+        printf("No se ha podido abrir el fichero");
+        return;
+    }
+    printf("Introduzca un porcentaje para subir el precio de los libros: ");
+    float porcentaje=0;
+    scanf("%f", porcentaje);
+    porcentaje=(porcentaje/100)+1;
+    for(int i=0;i<n;i++){
+        libros[i].precio*=porcentaje;
+    }
+    for(int i=0;i<n;i++){
+        fprintf(fichero,"%s",libros[i].titulo);
+        fprintf(fichero,"%s", libros[i].autor);
+        fprintf(fichero,"%.2f %d\n", libros[i].precio, libros[i].unidades);
     }
     fclose(fichero);
 }
