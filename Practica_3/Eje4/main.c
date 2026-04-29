@@ -30,5 +30,9 @@ int main(int argc, char **argv){
         else if(opcion==4){
             listarlibros(fichero, argv[1]);
         }
+        else if(opcion==5){
+            libro *libros=NULL;
+            hacerstruct(fichero, argv[1], &libros);
+        }
     }while(0<opcion && opcion<9);
 }

@@ -120,3 +120,28 @@ void listarlibros(FILE *fichero, char *nombre){
     fclose(fichero);
 }
 
+void hacerstruct(FILE *fichero, char *nombre, libro **libros){
+    fichero=fopen(nombre, 'r');
+    if(fichero==NULL){
+        printf("No se ha podido abrir el fichero");
+        return;
+    }
+    char titaut[50];
+    char basura[50];
+    int n=0;
+    while(fgets(titaut, 50, fichero)!=NULL){
+        fgets(basura, 50, fichero);
+        fgets(basura, 50, fichero);
+        n+=1;
+    }
+    *libros=(libro*) malloc(n*sizeof(libro));
+    int i=0;
+    rewind(fichero);
+    while(fgets((*libros)[i].titulo, 50, fichero)!=NULL && i<n){
+        fgets((*libros)[i].autor, 50, fichero);
+        fscanf("%f %d", &((*libros)[i].precio), &((*libros)[i].unidades));
+        while(fgetc(fichero)!='\n');
+        i+=1;
+    }
+    fclose(fichero);
+}
