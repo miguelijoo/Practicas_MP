@@ -200,6 +200,43 @@ void venderlibros(FILE *fichero, char *nombre, libro *libros, int n){
     }
     fclose(fichero);
 }
+void nuevofichero(FILE *fichero, char *nombre){
+    FILE *fichero2;
+    fichero=fopen(nombre, "r");
+    if(fichero==NULL){
+        printf("No se ha podido abrir el fichero");
+        return;
+    }
+    fichero2=fopen("catalogo extra", "w");
+    if(fichero2==NULL){
+        printf("No se ha podido abrir el fichero");
+        return;
+    }
+    printf("Introduzca el numero de unidades a partir de las que debe tener un libro en stock para conservarlo en otro fichero aparte: ");
+    int min=0;
+    scanf("%d", &min);
+    while(min<0){
+        printf("Error, introduzca un numero mayor que 0\n");
+        scanf("%d", &min);
+    }
+    while(getchar()!='\n');
+    char titulo[50], autor[50];
+    float precio;
+    int uds;
+    while(fgets(titulo, 50, fichero)!=NULL){
+        fgets(autor, 50, fichero);
+        fscanf(fichero, "%f %d", &precio, &uds);
+        while(fgetc(fichero)!='\n');
+        if(uds<min){
+            fprintf(fichero2,"%s", titulo);
+            fprintf(fichero2,"%s", autor);
+            fprintf(fichero2,"%.2f %d\n", precio, uds);
+        }
+    }
+    fclose(fichero);
+    fclose(fichero2);
+}
+
 void renovarfichero(FILE *fichero, char *nombre){
     FILE *fichero2;
     fichero=fopen(nombre, "r");
@@ -207,15 +244,26 @@ void renovarfichero(FILE *fichero, char *nombre){
         printf("No se ha podido abrir el fichero");
         return;
     }
-    fichero2=fopen("catalogo extra", "r");
-    if(fichero==NULL){
+    fichero2=fopen("reemplazo", "w");
+    if(fichero2==NULL){
         printf("No se ha podido abrir el fichero");
         return;
     }
-    printf("Introduzca el numero de unidades minimo que debe tener un libro en stock para conservarlo: ");
-    int min=0;
-    scanf("%d", &min);
-    while(getchar()!='\n');
+    char titulo[50], autor[50];
+    float precio;
+    int uds;
+    while(fgets(titulo, 50, fichero)!=NULL){
+        fgets(autor, 50, fichero);
+        fscanf(fichero, "%f %d", &precio, &uds);
+        while(fgetc(fichero)!='\n');
+        if(uds!=0){
+            fprintf(fichero2,"%s", titulo);
+            fprintf(fichero2,"%s", autor);
+            fprintf(fichero2,"%.2f %d\n", precio, uds);
+        }
+    }
     fclose(fichero);
     fclose(fichero2);
+    remove(nombre);
+    rename("reemplazo", nombre);
 }

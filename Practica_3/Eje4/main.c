@@ -45,6 +45,9 @@ int main(int argc, char **argv){
             free(libros);
         }
         else if(opcion==7){
+            nuevofichero(fichero, argv[1]);
+        }
+        else if(opcion==8){
             renovarfichero(fichero, argv[1]);
         }
     }while(0<opcion && opcion<9);

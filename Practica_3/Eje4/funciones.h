@@ -18,5 +18,8 @@ void contarlibros(FILE *fichero, char *nombre);
 void listarlibros(FILE *fichero, char *nombre);
 void hacerstruct(FILE *fichero, char *nombre, libro **libros, int *k);
 void subirprecio(FILE *fichero, char *nombre, libro *libros, int n);
+void venderlibros(FILE *fichero, char *nombre, libro *libros, int n);
+void nuevofichero(FILE *fichero, char *nombre);
+void renovarfichero(FILE *fichero, char *nombre);
 
 #endif
