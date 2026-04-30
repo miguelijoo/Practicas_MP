@@ -155,7 +155,7 @@ void subirprecio(FILE *fichero, char *nombre, libro *libros, int n){
     }
     printf("Introduzca un porcentaje para subir el precio de los libros: ");
     float porcentaje=0;
-    scanf("%f", porcentaje);
+    scanf("%f", &porcentaje);
     porcentaje=(porcentaje/100)+1;
     for(int i=0;i<n;i++){
         libros[i].precio*=porcentaje;
@@ -166,4 +166,56 @@ void subirprecio(FILE *fichero, char *nombre, libro *libros, int n){
         fprintf(fichero,"%.2f %d\n", libros[i].precio, libros[i].unidades);
     }
     fclose(fichero);
+}
+
+void venderlibros(FILE *fichero, char *nombre, libro *libros, int n){
+    fichero=fopen(nombre, "w+");
+    if(fichero==NULL){
+        printf("No se ha podido abrir el fichero");
+        return;
+    }
+    printf("Introduce el nombre del libro y las unidades a vender: ");
+    char titulo[50];
+    while(getchar()!='\n');
+    fgets(titulo, 50, stdin);
+    int uds;
+    scanf("%d", &uds);
+    while(getchar()!='\n');
+    int encontrado=0;
+    for(int i=0;i<n && encontrado==0;i++){
+        if(strcmp(titulo, libros[i].titulo)==0){
+            encontrado+=1;
+            if(uds>=libros[i].unidades){
+                libros[i].unidades=0;
+            }
+            else if(uds<libros[i].unidades){
+                libros[i].unidades-=uds;
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        fprintf(fichero,"%s",libros[i].titulo);
+        fprintf(fichero,"%s", libros[i].autor);
+        fprintf(fichero,"%.2f %d\n", libros[i].precio, libros[i].unidades);
+    }
+    fclose(fichero);
+}
+void renovarfichero(FILE *fichero, char *nombre){
+    FILE *fichero2;
+    fichero=fopen(nombre, "r");
+    if(fichero==NULL){
+        printf("No se ha podido abrir el fichero");
+        return;
+    }
+    fichero2=fopen("catalogo extra", "r");
+    if(fichero==NULL){
+        printf("No se ha podido abrir el fichero");
+        return;
+    }
+    printf("Introduzca el numero de unidades minimo que debe tener un libro en stock para conservarlo: ");
+    int min=0;
+    scanf("%d", &min);
+    while(getchar()!='\n');
+    fclose(fichero);
+    fclose(fichero2);
 }

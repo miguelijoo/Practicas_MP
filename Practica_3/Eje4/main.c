@@ -37,5 +37,15 @@ int main(int argc, char **argv){
             subirprecio(fichero, argv[1], libros, n);
             free(libros);
         }
+        else if(opcion==6){
+            libro *libros=NULL;
+            int n=0;
+            hacerstruct(fichero, argv[1], &libros, &n);
+            venderlibros(fichero, argv[1], libros, n);
+            free(libros);
+        }
+        else if(opcion==7){
+            renovarfichero(fichero, argv[1]);
+        }
     }while(0<opcion && opcion<9);
 }
