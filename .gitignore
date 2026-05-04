@@ -1,2 +1,3 @@
-# Ignorar archivos compilados.
+# Ignorar archivos compilados y makefiles
 *.o
+Makefile

@@ -12,7 +12,7 @@ void rellenarfichero(char *nombre, int nelemen, int inf, int sup){
     }
     int v[nelemen];
     for(int i=0;i<nelemen;i++){
-        v[i]=(rand() % (sup-inf+1)) + sup;
+        v[i]=(rand() % (sup-inf+1)) + inf;
     }
     fwrite(v, sizeof(int), nelemen, fichero);
     fclose(fichero);
