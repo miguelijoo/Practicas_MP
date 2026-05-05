@@ -1,4 +1,4 @@
 # Ignorar archivos compilados y makefiles
 *.o
 Makefile
-PRACTICAS_MP/*/Extra*/
+Extra*/
