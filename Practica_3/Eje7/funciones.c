@@ -5,81 +5,69 @@
 
 void buscarlibro(char *nombre){
     FILE *fichero;
-    fichero=fopen(nombre, "r");
+    fichero=fopen(nombre, "rb");
     if(fichero==NULL){
         printf("No se ha podido abrir el fichero");
         return;
     }
     int n=0;
     printf("Introduce el nombre del libro a buscar: ");
-    char titulo[50], basura[50];
+    char titulo[50];
     while(getchar() != '\n');
     fgets(titulo, 50, stdin);
     if(titulo[strlen(titulo)-1]=='\n'){
             titulo[strlen(titulo)-1]='\0';
     }
-    char titulobuscado[50];
-    while(fgets(titulobuscado, 50, fichero)!=NULL && n==0){
-        if(titulobuscado[strlen(titulobuscado)-1]=='\n'){
-            titulobuscado[strlen(titulobuscado)-1]='\0';
+    libro libro_buscado;
+    while(fread(&libro_buscado, sizeof(libro), 1, fichero)==1){
+        if(strcmp(libro_buscado.titulo, titulo)==0){
+            printf("El libro esta en el catalogo.\n");
+            n=1;
+            break;
         }
-        if(strcmp(titulo, titulobuscado)==0){
-            printf("El libro existe en el catálogo");
-            n+=1;
-        }
-        fgets(basura, 50, fichero);
-        fgets(basura, 50, fichero); /* Nos garantizamos que las dos siguientes líneas después del título se van a quedar en una variable basura y no donde necesitamos realmente ver el título, por si el usuario es tontito y pone autor para buscar en vez del título.*/
     }
-    if(n==0){
-        printf("No se ha encontrado el libro");
+    if(n!=1){
+        printf("No se ha encontrado el libro.\n");
     }
     fclose(fichero);
 }
 
 void anadirlibro(char *nombre){
     FILE *fichero;
-    fichero=fopen(nombre, "a+");
+    fichero=fopen(nombre, "a+b");
     if(fichero==NULL){
-        printf("No se ha podido abrir el fichero");
+        printf("No se ha podido abrir el fichero.");
         return;
     }
     printf("Introduce el nombre del libro a añadir para comprobar si ya esta en la base de datos: ");
-    char titulo[50], basura[50];
+    char titulo[50];
     while(getchar()!='\n');
     fgets(titulo, 50, stdin);
     if(titulo[strlen(titulo)-1]=='\n'){
         titulo[strlen(titulo)-1]='\0';
     }
-    char titulobuscado[50];
     int encontrado =0;
     rewind(fichero);
-    while(fgets(titulobuscado, 50, fichero)!=NULL && encontrado == 0){
-        if(titulobuscado[strlen(titulobuscado)-1]=='\n'){
-            titulobuscado[strlen(titulobuscado)-1]='\0';
-        }
-        if(strcmp(titulo, titulobuscado)==0){
-            printf("Su libro ya existe en la base de datos");
+    libro libro_anadir;
+    while(fread(&libro_anadir, sizeof(libro), 1, fichero)==1){
+        if(strcmp(libro_anadir.titulo, titulo)==0){
+            printf("El libro esta en el catalogo.\n");
             encontrado+=1;
+            break;
         }
-        fgets(basura, 50, fichero);
-        fgets(basura, 50, fichero);
     }
     if(encontrado==0){
-        fprintf(fichero,"%s\n", titulo);
+        strcpy(libro_anadir.titulo, titulo);
         printf("Nombre del autor: ");
-        char autor[50];
-        fgets(autor, 50, stdin);
-        if(autor[strlen(autor)-1]=='\n'){
-            autor[strlen(autor)-1]='\0';
+        fgets(libro_anadir.autor, 50, stdin);
+        if(libro_anadir.autor[strlen(libro_anadir.autor)-1]=='\n'){
+            libro_anadir.autor[strlen(libro_anadir.autor)-1]='\0';
         }
-        fprintf(fichero,"%s\n", autor);
         printf("Precio: ");
-        float precio=0;
-        scanf("%f", &precio);
+        scanf("%f", &(libro_anadir.precio));
         printf("Unidades del producto: ");
-        int uds=0;
-        scanf("%d", &uds);
-        fprintf(fichero,"%.2f %d\n", precio, uds);
+        scanf("%d", &(libro_anadir.unidades));
+        fwrite(&libro_anadir, sizeof(libro), 1, fichero);
     }
     fclose(fichero);
 }
