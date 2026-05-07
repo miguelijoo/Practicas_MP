@@ -65,6 +65,7 @@ void anadirlibro(char *nombre){
         }
         printf("Precio: ");
         scanf("%f", &(libro_anadir.precio));
+        while(getchar()!='\n');
         printf("Unidades del producto: ");
         scanf("%d", &(libro_anadir.unidades));
         fwrite(&libro_anadir, sizeof(libro), 1, fichero);
@@ -74,17 +75,16 @@ void anadirlibro(char *nombre){
 
 void contarlibros(char *nombre){
     FILE *fichero;
-    fichero=fopen(nombre, "r");
+    fichero=fopen(nombre, "rb");
     if(fichero==NULL){
         printf("No se ha podido abrir el fichero");
         return;
     }
-    char titulo[50], basura[50];
+    libro contador;
     int n=0;
-    while(fgets(titulo, 50, fichero)!=NULL){
+    while(fread(&contador, sizeof(contador), 1, fichero)==1){
         n+=1;
-        fgets(basura, 50, fichero);
-        fgets(basura, 50, fichero);
+
     }
     printf("Hay %d libros diferentes en el stock.\n", n);
     fclose(fichero);
@@ -92,57 +92,42 @@ void contarlibros(char *nombre){
 
 void listarlibros(char *nombre){
     FILE *fichero;
-    fichero=fopen(nombre, "r");
+    fichero=fopen(nombre, "rb");
     if(fichero==NULL){
-        printf("No se ha podido abrir el fichero");
+        printf("No se ha podido abrir el fichero.");
         return;
     }
-    char titaut[50];
-    float precio;
-    int uds, c;
-    while(fgets(titaut, 50, fichero)!=NULL){
-        printf("\nTitulo: %s", titaut);
-        fgets(titaut, 50, fichero);
-        printf("Autor: %s", titaut);
-        fscanf(fichero,"%f %d", &precio, &uds);
-        printf("Precio: %.2f\n", precio);
-        printf("Unidades: %d\n", uds);
-        while(c=fgetc(fichero)!='\n' && c!=EOF);
+    libro mostrarlibro;
+    while(fread(&mostrarlibro, sizeof(libro), 1, fichero)==1){
+        printf("\nTitulo: %s", mostrarlibro.titulo);
+        printf("\nAutor: %s", mostrarlibro.autor);
+        printf("\nPrecio: %.2f\n", mostrarlibro.precio);
+        printf("Unidades: %d\n", mostrarlibro.unidades);
     }
     fclose(fichero);
 }
 
 void hacerstruct(char *nombre, libro **libros, int *k){
     FILE *fichero;
-    fichero=fopen(nombre, "r");
+    fichero=fopen(nombre, "rb");
     if(fichero==NULL){
         printf("No se ha podido abrir el fichero");
         return;
     }
-    char titaut[50];
-    char basura[50];
-    int n=0;
-    while(fgets(titaut, 50, fichero)!=NULL){
-        fgets(basura, 50, fichero);
-        fgets(basura, 50, fichero);
-        n+=1;
+    libro libroleido;
+    while(fread(&libroleido, sizeof(libro), 1, fichero)==1){
+        *k+=1;
     }
-    *libros=(libro*) malloc(n*sizeof(libro));
+    *libros=(libro*) malloc((*k)*sizeof(libro));
     int i=0;
     rewind(fichero);
-    while(fgets((*libros)[i].titulo, 50, fichero)!=NULL && i<n){
-        fgets((*libros)[i].autor, 50, fichero);
-        fscanf(fichero, "%f %d", &((*libros)[i].precio), &((*libros)[i].unidades));
-        while(fgetc(fichero)!='\n');
-        i+=1;
-    }
-    *k=n;
+    fread(*libros, sizeof(libro), *k, fichero);
     fclose(fichero);
 }
 
 void subirprecio(char *nombre, libro *libros, int n){
     FILE *fichero;
-    fichero=fopen(nombre, "w");
+    fichero=fopen(nombre, "wb");
     if(fichero==NULL){
         printf("No se ha podido abrir el fichero");
         return;
@@ -154,17 +139,13 @@ void subirprecio(char *nombre, libro *libros, int n){
     for(int i=0;i<n;i++){
         libros[i].precio*=porcentaje;
     }
-    for(int i=0;i<n;i++){
-        fprintf(fichero,"%s",libros[i].titulo);
-        fprintf(fichero,"%s", libros[i].autor);
-        fprintf(fichero,"%.2f %d\n", libros[i].precio, libros[i].unidades);
-    }
+    fwrite(libros, sizeof(libro), n, fichero);
     fclose(fichero);
 }
 
 void venderlibros(char *nombre, libro *libros, int n){
     FILE *fichero;
-    fichero=fopen(nombre, "w+");
+    fichero=fopen(nombre, "w+b");
     if(fichero==NULL){
         printf("No se ha podido abrir el fichero");
         return;
@@ -173,6 +154,9 @@ void venderlibros(char *nombre, libro *libros, int n){
     char titulo[50];
     while(getchar()!='\n');
     fgets(titulo, 50, stdin);
+    if(titulo[strlen(titulo)-1]=='\n'){
+        titulo[strlen(titulo)-1]='\0';
+    }
     int uds;
     scanf("%d", &uds);
     while(getchar()!='\n');
@@ -188,22 +172,18 @@ void venderlibros(char *nombre, libro *libros, int n){
             }
         }
     }
-    for(int i=0;i<n;i++){
-        fprintf(fichero,"%s",libros[i].titulo);
-        fprintf(fichero,"%s", libros[i].autor);
-        fprintf(fichero,"%.2f %d\n", libros[i].precio, libros[i].unidades);
-    }
+    fwrite(libros, sizeof(libro), n, fichero);
     fclose(fichero);
 }
 void nuevofichero(char *nombre){
     FILE *fichero;
     FILE *fichero2;
-    fichero=fopen(nombre, "r");
+    fichero=fopen(nombre, "rb");
     if(fichero==NULL){
         printf("No se ha podido abrir el fichero");
         return;
     }
-    fichero2=fopen("catalogo extra", "w");
+    fichero2=fopen("catalogo extra", "wb");
     if(fichero2==NULL){
         printf("No se ha podido abrir el fichero");
         return;
@@ -216,17 +196,10 @@ void nuevofichero(char *nombre){
         scanf("%d", &min);
     }
     while(getchar()!='\n');
-    char titulo[50], autor[50];
-    float precio;
-    int uds;
-    while(fgets(titulo, 50, fichero)!=NULL){
-        fgets(autor, 50, fichero);
-        fscanf(fichero, "%f %d", &precio, &uds);
-        while(fgetc(fichero)!='\n');
-        if(uds<min){
-            fprintf(fichero2,"%s", titulo);
-            fprintf(fichero2,"%s", autor);
-            fprintf(fichero2,"%.2f %d\n", precio, uds);
+    libro libroactualizado;
+    while(fread(&libroactualizado, sizeof(libro), 1, fichero)==1){
+        if(libroactualizado.unidades<min){
+            fwrite(&libroactualizado, sizeof(libro), 1, fichero2);
         }
     }
     fclose(fichero);
@@ -236,27 +209,20 @@ void nuevofichero(char *nombre){
 void renovarfichero(char *nombre){
     FILE *fichero;
     FILE *fichero2;
-    fichero=fopen(nombre, "r");
+    fichero=fopen(nombre, "rb");
     if(fichero==NULL){
         printf("No se ha podido abrir el fichero");
         return;
     }
-    fichero2=fopen("reemplazo", "w");
+    fichero2=fopen("reemplazo", "wb");
     if(fichero2==NULL){
         printf("No se ha podido abrir el fichero");
         return;
     }
-    char titulo[50], autor[50];
-    float precio;
-    int uds;
-    while(fgets(titulo, 50, fichero)!=NULL){
-        fgets(autor, 50, fichero);
-        fscanf(fichero, "%f %d", &precio, &uds);
-        while(fgetc(fichero)!='\n');
-        if(uds!=0){
-            fprintf(fichero2,"%s", titulo);
-            fprintf(fichero2,"%s", autor);
-            fprintf(fichero2,"%.2f %d\n", precio, uds);
+    libro libroleido;
+    while(fread(&libroleido, sizeof(libro), 1, fichero)==1){
+        if(libroleido.unidades!=0){
+            fwrite(&libroleido, sizeof(libro), 1, fichero2);
         }
     }
     fclose(fichero);
