@@ -3,6 +3,6 @@
 
 #include <stdio.h>
 
-int mcd(int x, int y);
+int triangular(int num, int x, int res);
 
 #endif
