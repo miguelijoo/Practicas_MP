@@ -8,6 +8,9 @@ void anadir(monomio **cabeza){
     nuevo=(monomio*) malloc(sizeof(monomio));
     printf("Introduzca los datos del monomio:\nCoeficiente: ");
     scanf("%d", &(nuevo->coef));
+    if(nuevo->coef==0){
+        return;
+    }
     printf("Exponente: ");
     scanf("%d", &(nuevo->exp));
     while(nuevo->exp<0){
@@ -67,4 +70,29 @@ int comprobar(monomio *cabeza, monomio *nuevo){
         aux=aux->siguiente;
     }
     return 0;
+}
+
+void mostrarmonomio(monomio *cabeza){
+    monomio *aux=cabeza;
+    while(aux!=NULL){
+        if(aux->coef>0 && aux->exp!=0 && aux==cabeza){ /*3x²*/
+            printf("%dx^%d", aux->coef, aux->exp);
+        }
+        else if(aux->coef>0 && aux->exp==0 && aux==cabeza){ /*3*/
+            printf("%d", aux->coef);
+        }
+        else if(aux->coef<0 && aux->exp==0){/*-3*/
+            printf("-%d", aux->coef);
+        }
+        else if(aux->coef<0 && aux->exp!=0){ /*-3x²*/
+            printf("-%dx^%d", aux->coef, aux->exp);
+        }
+        else if(aux->coef>0 && aux->exp==0 && aux!=cabeza){ /*+3*/
+            printf("+%d",aux->coef);
+        }
+        else if(aux->coef>0 && aux->exp!=0 && aux!=cabeza){ /*+3x²*/
+            printf("+%dx^%d", aux->coef, aux->exp);
+        }
+        aux=aux->siguiente;
+    }
 }

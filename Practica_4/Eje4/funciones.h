@@ -15,4 +15,6 @@ void anadir(monomio **cabeza);
 
 int comprobar(monomio *cabeza, monomio *nuevo);
 
+void mostrarmonomio(monomio *cabeza);
+
 #endif

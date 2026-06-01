@@ -17,7 +17,5 @@ int main(int argc, char **argv){
     for(int i=0;i<x;i++){
         anadir(&cabeza);
     }
-    for(int i=0;i<x;i++){
-        imprimirpol(cabeza);
-    }
+    mostrarmonomio(cabeza);
 }
