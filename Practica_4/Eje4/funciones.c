@@ -6,6 +6,10 @@
 void anadir(monomio **cabeza){
     monomio *aux=*cabeza, *ant=aux, *nuevo;
     nuevo=(monomio*) malloc(sizeof(monomio));
+    if(nuevo==NULL){
+        printf("No se ha podido reservar la memoria.\n");
+        exit(-1);
+    }
     printf("Introduzca los datos del monomio:\nCoeficiente: ");
     scanf("%d", &(nuevo->coef));
     if(nuevo->coef==0){
@@ -95,4 +99,14 @@ void mostrarmonomio(monomio *cabeza){
         }
         aux=aux->siguiente;
     }
+}
+
+float evaluarpol(monomio *cabeza, float i){
+    monomio *aux=cabeza;
+    float suma=0;
+    while(aux!=NULL){
+        suma+=aux->coef*pow(i,aux->exp);
+        aux=aux->siguiente;
+    }
+    return suma;
 }

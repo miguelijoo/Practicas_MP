@@ -18,4 +18,9 @@ int main(int argc, char **argv){
         anadir(&cabeza);
     }
     mostrarmonomio(cabeza);
+    float j;
+    for(float i=0;i<5;i+=0.5){
+        j=evaluarpol(cabeza, i);
+        printf("(x=%.2f,%.2f) ", i, j);
+    }
 }

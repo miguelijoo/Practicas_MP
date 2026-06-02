@@ -17,4 +17,8 @@ int comprobar(monomio *cabeza, monomio *nuevo);
 
 void mostrarmonomio(monomio *cabeza);
 
+float evaluarpol(monomio *cabeza, float i);
+
+
+
 #endif
