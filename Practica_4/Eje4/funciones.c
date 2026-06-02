@@ -76,7 +76,7 @@ int comprobar(monomio *cabeza, monomio *nuevo){
     return 0;
 }
 
-void mostrarmonomio(monomio *cabeza){
+void mostrarpolinomio(monomio *cabeza){
     monomio *aux=cabeza;
     while(aux!=NULL){
         if(aux->coef>0 && aux->exp!=0 && aux==cabeza){ /*3x²*/
@@ -109,4 +109,30 @@ float evaluarpol(monomio *cabeza, float i){
         aux=aux->siguiente;
     }
     return suma;
+}
+
+void eliminarmonomio(monomio **cabeza){
+    monomio *aux=*cabeza, *ant=*cabeza;
+    printf("Elija el exponente para saber qué monomio eliminar: ");
+    int exp;
+    scanf("%d", &exp);
+    while(exp<0){
+        printf("Error, introduzca un exponente no negativo: ");
+        scanf("%d", &exp);
+    }
+    while(aux!=NULL){
+        if(exp==aux->exp && aux==*cabeza){
+            *cabeza=aux->siguiente;
+            free(aux);
+            return;
+        }
+        else if(exp==aux->exp && aux!=*cabeza){
+            ant->siguiente=aux->siguiente;
+            free(aux);
+            return;
+        }
+        ant=aux;
+        aux=aux->siguiente;
+    }
+    printf("No se ha encontrado el exponente a eliminar.\n");
 }

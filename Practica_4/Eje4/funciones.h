@@ -15,10 +15,10 @@ void anadir(monomio **cabeza);
 
 int comprobar(monomio *cabeza, monomio *nuevo);
 
-void mostrarmonomio(monomio *cabeza);
+void mostrarpolinomio(monomio *cabeza);
 
 float evaluarpol(monomio *cabeza, float i);
 
-
+void eliminarmonomio(monomio **cabeza);
 
 #endif

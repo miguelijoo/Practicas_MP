@@ -17,10 +17,14 @@ int main(int argc, char **argv){
     for(int i=0;i<x;i++){
         anadir(&cabeza);
     }
-    mostrarmonomio(cabeza);
+    mostrarpolinomio(cabeza);
+    printf("\n");
     float j;
     for(float i=0;i<5;i+=0.5){
         j=evaluarpol(cabeza, i);
         printf("(x=%.2f,%.2f) ", i, j);
     }
+    printf("\n");
+    eliminarmonomio(&cabeza);
+    mostrarpolinomio(cabeza);
 }
