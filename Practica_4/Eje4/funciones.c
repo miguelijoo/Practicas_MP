@@ -135,4 +135,5 @@ void eliminarmonomio(monomio **cabeza){
         aux=aux->siguiente;
     }
     printf("No se ha encontrado el exponente a eliminar.\n");
+    return;
 }
