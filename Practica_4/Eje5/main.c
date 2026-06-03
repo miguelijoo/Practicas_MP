@@ -62,13 +62,27 @@ int main(){
             break;
         }
         case 4:{
-            int x=0;
-            while(colae!=NULL && x!=k && colan!=NULL){
-
+            struct trabajo aux;
+            struct nodo *colaux=NULL, *colaux2=NULL;
+            int x=0; /*Si tengo errores de variables repetidas, declaro las repetidas al inicio del programa.*/
+            while(colae!=NULL && x!=k && colan!=NULL){ /*Imprimo los k primeros elementos de la cola especial si la cola normal no está vacía*/
+                aux=sacaCola(&colae);
+                printf("Fichero impreso\nlogin: %d\nfichero: %s\n", aux.login, aux.nombre);
+                insertaCola(&colaux, aux);
+                x++;
             }
-            while(colae!=NULL && colan==NULL){
+            if(x==k){
+                printf("Cola especial en pausa, continúa cuando finalice la normal.\n");
+            }
+            while(colan!=NULL){ /*Imprimo los ficheros de la cola normal*/
+                aux=sacaCola(&colan);
+                printf("Fichero impreso\nlogin: %d\nfichero: %s\n", aux.login, aux.nombre);
+                insertaCola(&colaux2, aux);
+            }
+            while(colae!=NULL && colan==NULL){ /**/
                 
             }
+            colae=colaux;
         }
         case 5:{
 
