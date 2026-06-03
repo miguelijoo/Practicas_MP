@@ -47,15 +47,15 @@ struct trabajo sacaCola(struct nodo ** cola ){
 
    /* La cabeza de la cola pasa al siguiente elemento */
    *cola=aux->sig;
- 
+
   /* Se copia la información del nodo que estaba en la cabeza de la cola */
    n=aux->elemento;
-  
+
    /* Se libera la memoria del nodo */
    free(aux);
 
    /* Se devuelve la información del nodo que estaba en la cabeza de la cola */
-   return n;     
+   return n;  
 }
 
 
