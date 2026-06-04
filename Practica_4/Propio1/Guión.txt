@@ -1,0 +1,19 @@
+### Ejercicio 1: El "Burbuja" Universal (Burbuja + Punteros a funciones)
+
+Objetivo: Practicar el algoritmo Burbuja y el paso de funciones como parámetros.
+
+Toma la estructura a usar:
+
+struct alumno {
+    char nombre[50];
+    int DNI;
+    float nota;
+};
+
+Tu tarea:
+
+1. Crea un vector estático de 5 alumnos con datos inventados.
+2. Crea dos funciones de comparación: int compararPorNota(struct alumno a, struct alumno b) e int compararPorDNI(struct alumno a, struct alumno b). Deben devolver 1 si a debe ir después de b (para ordenar de menor a mayor), y 0 en caso contrario.
+3. Escribe una función de ordenación basada en el algoritmo Burbuja. La clave está en que la función debe recibir el vector, el tamaño, y un puntero a la función de comparación.
+    -Pista para la firma de la función: void ordenarBurbuja(struct alumno v[], int n, int (*criterio)(struct alumno, struct alumno))
+4. En el main, llama a tu Burbuja pasándole compararPorNota y comprueba que se ordena por nota. Luego llámala pasándole compararPorDNI y comprueba que se ordena por DNI.
