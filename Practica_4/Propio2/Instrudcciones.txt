@@ -1,5 +1,5 @@
 1. Crea un vector dinámico de 15 números enteros aleatorios (desordenados).
-2. Utiliza la función estándar qsort para ordenar el vector de menor a mayor. Recuerda que qsort exige que le pases por parámetro una función de comparación que recibe punteros genéricos (const void *a, const void *b). El paso de la función de comparación a la función qsort se hará con un puntero a función.
+2. Utiliza la función estándar qsort para ordenar el vector de menor a mayor. Recuerda que qsort exige que le pases por parámetro una función de comparación que recibe punteros genéricos (const void *a, const void *b).
 3. Una vez que el vector esté ordenado por el qsort, pide al usuario por teclado un número.
 4. Utiliza el código de la Búsqueda Binaria para decirle al usuario en qué índice exacto ha quedado su número tras la ordenación (o si no existe en el vector).
 5. Libera la memoria del vector al terminar.

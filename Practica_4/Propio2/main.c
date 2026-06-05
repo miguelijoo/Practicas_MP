@@ -16,5 +16,20 @@ int main(){
     }
     int *v=NULL;
     crearvector(&v, inf, sup);
+    qsort(v, 15, sizeof(int), compararasc);
+    printf("Vector ordenado: ");
+    for(int i=0;i<15;i++){
+        printf("%d, ", v[i]);
+    }
+    printf("\nIntroduzca un número para buscarlo en el vector: ");
+    int valor=0;
+    scanf("%d", &valor);
+    int x=buscarvalor(v, 15, valor);
+    if(x==-1){
+        printf("El valor no estaba en el vector.\n");
+    }
+    else{
+        printf("El valor estaba en la posición %d del vector\n", x);
+    }
     return 0;
 }
