@@ -1,0 +1,19 @@
+### Reto 1: El Puerto de Mercancías Avanzado (Listas + Pilas + Colas)
+
+Vamos a llevar el Ejercicio 6 de tu boletín al límite. En un puerto real no hay una sola pila de contenedores, hay decenas de ellas distribuidas en distintos muelles, y además hay camiones esperando para llevarse mercancía específica.
+
+Las Estructuras:
+
+1. Tienes una Lista Enlazada Simple. Cada nodo de la lista representa un Muelle.
+2. Cada Muelle (nodo de la lista) contiene un id_muelle (int) y un puntero a la cima de una Pila de contenedores.
+3. Tienes una Cola global de Camiones (contenedores listos para salir).
+
+Tu Misión:
+
+Implementa una función llamada inspeccionAduana. Esta función recibe la cabeza de la lista de muelles y la cola de camiones.
+
+El objetivo es recorrer *todos* los muelles. En cada muelle, debes buscar todos los contenedores cuyo código sea impar (sospechosos de contrabando).
+
+- Si encuentras un contenedor impar, lo sacas permanentemente de su pila y lo encolas en la Cola de Camiones para que se lo lleven.
+- Los contenedores pares deben quedarse en su pila original **exactamente en el mismo orden** en el que estaban.
+- Restricción absoluta: No puedes usar vectores, ni for, ni acceder a pila->sig. Debes usar listas auxiliares, pilas auxiliares o colas auxiliares según manden las normas TDA.
