@@ -14,5 +14,7 @@ int main(){
     for(int i=0;i<5;i++){
         anadirmuelle(&cabeza);
     }
+    camion *cola=NULL;
+    inspeccionAduana(cabeza, &cola);
     return 0;
 }

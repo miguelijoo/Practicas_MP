@@ -3,7 +3,7 @@
 #include "funciones.h"
 
 void anadirmuelle(muelle **cabeza){
-    muelle *aux=NULL, *ant=NULL;
+    muelle *aux=NULL, *ant=NULL, *aux2=NULL;
     aux=(muelle*) malloc(sizeof(muelle));
     if(aux==NULL){
         exit -1;
@@ -22,7 +22,7 @@ void anadirmuelle(muelle **cabeza){
             printf("Error, introduzca un número correcto de contenedores: ");
             scanf("%d", &n);
         }
-        *cabeza=aux;
+        *cabeza=aux; /*Le asigno a la cabeza el nuevo nodo creado si estaba vacía.*/
         aux->sig==NULL;
         aux->inicio=NULL;
         for(int i=0;i<n;i++){
@@ -30,9 +30,10 @@ void anadirmuelle(muelle **cabeza){
         }
     }
     else{
-        while(aux!=NULL){
-            ant=aux;
-            aux=aux->sig;
+        aux2=*cabeza;
+        while(aux2!=NULL){ /*Desplazo el auxiliar en el bucle hasta llegar al último elemento*/
+            ant=aux2;
+            aux2=aux2->sig;
         }
         printf("Introduzca el número de contenedores a introducir en el muelle: ");
         int n;
@@ -68,4 +69,25 @@ void push(contenedor **inicio){
     aux->sig=*inicio;
     *inicio=aux;
     }
+}
+
+void inspeccionAduana(muelle *cabeza, camion **cola){
+    muelle *aux=cabeza;
+    contenedor *pilaux=NULL, *aux2=NULL;
+    while(aux!=NULL){
+        while(aux->inicio!=NULL){ /*Metemos en una pila auxiliar a los contenedores de código par*/
+            aux2=pop(&(aux->inicio));
+            if(aux2->cod%2==0){
+                push(&pilaux);
+            }
+        }
+        while(pilaux!=NULL){ /*Revertimos el orden al original.*/
+            aux2=pop(&pilaux);
+            push(&(aux->inicio));
+        }
+    }
+}
+
+contenedor* pop(contenedor *inicio){
+
 }
