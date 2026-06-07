@@ -15,12 +15,12 @@ int main(){
     
     for(int i=0;i<n;i++){
         muelle *nuevo=NULL;
-        nuevo=(muelle*) malloc(sizeof(muelle));
+        nuevo=(muelle*) malloc(sizeof(muelle)); /*Cada nuevo muelle es una caja distinta, por lo que tengo que crear una caja para cada uno*/
         if(nuevo==NULL){
             exit(-1);
         }
-        nuevo->inicio=NULL;
-        nuevo->sig=NULL;
+        nuevo->inicio=NULL; /*Pongo la pila del muelle a NULL para empezar por la pila vacía*/
+        nuevo->sig=NULL; /*Como vamos a encolar, pongo el siguiente de ese muelle a NULL, ya que cada muelle nuevo apunta al final de toda la cola.*/
         printf("Introduce el código del nuevo muelle: ");
         scanf("%d", &(nuevo->id_muelle));
         while(nuevo->id_muelle<=0){
@@ -35,7 +35,7 @@ int main(){
         }
         for(int j=0;j<x;j++){ /*Metemos en el muelle toda la pila de contenedores entera y alojada en el puntero especificado en el muelle*/
             contenedor *nuevo2=NULL;
-            nuevo2=(contenedor*) malloc(sizeof(contenedor));
+            nuevo2=(contenedor*) malloc(sizeof(contenedor)); /*Creo un contenedor nuevo siempre que vaya a introducir uno en la pila*/
             if(nuevo2==NULL){
                 exit(-1);
             }

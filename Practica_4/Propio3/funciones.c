@@ -12,7 +12,7 @@ void anadirmuelle(muelle **cabeza, muelle *nuevo, int x){
             aux=aux->sig;
         }
         aux->sig=nuevo;
-        nuevo->sig=NULL;
+        nuevo->sig=NULL; /*En el main ya lo puse así que es algo redundante pero lo dejo por si acaso*/
     }
 }
 
