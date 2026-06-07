@@ -2,50 +2,9 @@
 #include <stdlib.h>
 #include "funciones.h"
 
-void anadirmuelle(muelle **cabeza){
-    muelle *aux=NULL, *ant=NULL, *aux2=NULL;
-    aux=(muelle*) malloc(sizeof(muelle));
-    if(aux==NULL){
-        exit -1;
-    }
-    if(*cabeza==NULL){
-        printf("Introduzca el código del muelle: ");
-        scanf("%d", &(aux->id_muelle));
-        while(aux->id_muelle<=0){
-            printf("Error, introduzca un código correcto: ");
-            scanf("%d", &(aux->id_muelle));
-        }
-        printf("Introduzca el número de contenedores a introducir en el muelle: ");
-        int n;
-        scanf("%d", &n);
-        while(n<=0){
-            printf("Error, introduzca un número correcto de contenedores: ");
-            scanf("%d", &n);
-        }
-        *cabeza=aux; /*Le asigno a la cabeza el nuevo nodo creado si estaba vacía.*/
-        aux->sig==NULL;
-        aux->inicio=NULL;
-        for(int i=0;i<n;i++){
-            push(&(aux->inicio));
-        }
-    }
-    else{
-        aux2=*cabeza;
-        while(aux2!=NULL){ /*Desplazo el auxiliar en el bucle hasta llegar al último elemento*/
-            ant=aux2;
-            aux2=aux2->sig;
-        }
-        printf("Introduzca el número de contenedores a introducir en el muelle: ");
-        int n;
-        scanf("%d", &n);
-        while(n<=0){
-            printf("Error, introduzca un número correcto de contenedores: ");
-            scanf("%d", &n);
-        }
-        for(int i=0;i<n;i++){
-            push(&(ant->inicio));
-        }
-    }
+void anadirmuelle(muelle **cabeza, muelle *nuevo){
+
+   
 }
 
 void push(contenedor **inicio){
